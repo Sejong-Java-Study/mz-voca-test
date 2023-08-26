@@ -35,4 +35,6 @@ https://velog.io/@archivvonjang/Git-Commit-Message-Convention
 
 `이름` 으로 브랜치 이름을 만든다. ex) `taehyeon`, `yuhan`, `heesoo`
 
+https://www.youtube.com/watch?v=tkkbYCajCjM 해당 영상을 기반으로 진행한다.
+
 </details>
