@@ -1,0 +1,34 @@
+
+.mainbody{
+    margin-top:10px;
+    margin-bottom:10px;
+    padding-top:5px;
+    background: url("../images/v1_3.png");
+    text-align: center;
+    background-size:cover;
+    height:90vdh;
+}
+body{
+    background-color: pink;
+}
+ul{
+    border: 1px solid;
+    text-align:left
+}
+.name{
+    display: flex;
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
+    text-align: center;
+}
+
+th{
+    border: 1px solid;
+}
+.btn1{
+    background-color: gray;
+    color:black;
+}
+*{
+    font-family: 'Noto Serif KR', serif;
+}
