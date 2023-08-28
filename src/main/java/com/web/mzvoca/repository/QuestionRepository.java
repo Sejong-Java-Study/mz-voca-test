@@ -1,6 +1,6 @@
 package com.web.mzvoca.repository;
 
-public interface questionRepository {
+public interface QuestionRepository {
 
     public void questionWrongCountRead();
 

@@ -5,7 +5,6 @@ import org.springframework.jdbc.support.JdbcUtils;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
-import javax.xml.transform.Result;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,7 +13,7 @@ import java.util.NoSuchElementException;
 
 @Repository
 @RequiredArgsConstructor
-public class totalCountRepositoryImpl implements totalCountRepository{
+public class TotalCountRepositoryImpl implements TotalCountRepository {
 
     private final DataSource dataSource;
 

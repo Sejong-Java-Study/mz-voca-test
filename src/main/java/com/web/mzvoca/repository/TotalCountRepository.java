@@ -1,6 +1,6 @@
 package com.web.mzvoca.repository;
 
-public interface totalCountRepository {
+public interface TotalCountRepository {
 
     public int totalCountRead();
 
