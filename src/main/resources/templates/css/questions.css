@@ -1,4 +1,6 @@
-
+#qna{
+    display: none;
+}
 .mainbody{
     background: url("../images/v1_3.png");
     text-align: center;
