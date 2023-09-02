@@ -27,7 +27,7 @@ class totalCountRepositoryImplTest {
 
     @Test
     @DisplayName("총 제출 횟수 읽기")
-    void totalCountRead() {
+    void totalCountReadTest() {
         //given
         Integer result = null;
 
@@ -39,5 +39,19 @@ class totalCountRepositoryImplTest {
         //then
         assertThat(result).isEqualTo(3);
 
+    }
+
+    @Test
+    @DisplayName("총 제출 횟수 1 증가")
+    void totalCountUpdateTest() {
+        //given
+        Integer beforeResult = totalCountRepository.totalCountRead();
+
+        //when
+        totalCountRepository.totalCountUpdate();
+        Integer afterResult = totalCountRepository.totalCountRead();
+
+        //then
+        assertThat(afterResult).isEqualTo(beforeResult + 1);
     }
 }

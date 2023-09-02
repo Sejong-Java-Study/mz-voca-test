@@ -1,6 +1,7 @@
 package com.web.mzvoca.repository;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.datasource.DataSourceUtils;
 import org.springframework.jdbc.support.JdbcUtils;
 import org.springframework.stereotype.Repository;
@@ -11,6 +12,7 @@ import java.util.NoSuchElementException;
 
 @Repository
 @RequiredArgsConstructor
+@Slf4j
 public class TotalCountRepositoryImpl implements TotalCountRepository {
 
     private final DataSource dataSource;
@@ -44,7 +46,23 @@ public class TotalCountRepositoryImpl implements TotalCountRepository {
 
     @Override
     public void totalCountUpdate() {
+        // Update문을 통해 totalCount 값을 1 증가
+        String sql = "update totalcount set totalCount = totalCount + 1";
 
+        Connection con = null;
+        PreparedStatement pstmt = null;
+
+        try {
+            con = getConnection();
+            pstmt = con.prepareStatement(sql);
+            int result = pstmt.executeUpdate();
+            log.info("실행된 행 개수={}", result);
+        } catch (SQLException e) {
+            log.info("db Error", e);
+            throw new RuntimeException(e);
+        } finally {
+            close(con, pstmt, null);
+        }
     }
 
     private Connection getConnection() throws SQLException {
