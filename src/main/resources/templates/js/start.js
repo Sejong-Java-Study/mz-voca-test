@@ -19,6 +19,17 @@ function goNext(qIdx){
     var a2=document.querySelector('.a2');
     var a3=document.querySelector('.a3');
     var a4=document.querySelector('.a4');
+    var section=document.querySelector('.section');
+    var status=document.querySelector('.status');
+    var statusBar=document.querySelector('.statusBar');
+    if(qIdx%2==0){
+        section.innerHTML='문해력 영역';
+    }
+    else{
+        section.innerHTML='MZ 영역';
+    }
+    status.innerHTML=qIdx+1+'/15';
+    statusBar.style.width=((qIdx+1)/15*100)+'%';
     q.innerHTML=qnaList[qIdx].q;
     a1.innerHTML=qnaList[qIdx].a[0].answer;
     a2.innerHTML=qnaList[qIdx].a[1].answer;

@@ -17,4 +17,121 @@ const qnaList=[
             {answer: '쫑받네'},
         ]
     },
+    {
+        q : '3. test',
+        a : [
+            {answer: '1번 답'},
+            {answer: '2번 답'},
+            {answer: '3번 답'},
+            {answer: '4번 답'},
+        ]
+    },
+    {
+        q : '4. test',
+        a : [
+            {answer: '1번 답'},
+            {answer: '2번 답'},
+            {answer: '3번 답'},
+            {answer: '4번 답'},
+        ]
+    },
+    {
+        q : '5. test',
+        a : [
+            {answer: '1번 답'},
+            {answer: '2번 답'},
+            {answer: '3번 답'},
+            {answer: '4번 답'},
+        ]
+    },
+    {
+        q : '6. test',
+        a : [
+            {answer: '1번 답'},
+            {answer: '2번 답'},
+            {answer: '3번 답'},
+            {answer: '4번 답'},
+        ]
+    },
+    {
+        q : '7. test',
+        a : [
+            {answer: '1번 답'},
+            {answer: '2번 답'},
+            {answer: '3번 답'},
+            {answer: '4번 답'},
+        ]
+    },
+    {
+        q : '8. test',
+        a : [
+            {answer: '1번 답'},
+            {answer: '2번 답'},
+            {answer: '3번 답'},
+            {answer: '4번 답'},
+        ]
+    },
+    {
+        q : '9. test',
+        a : [
+            {answer: '1번 답'},
+            {answer: '2번 답'},
+            {answer: '3번 답'},
+            {answer: '4번 답'},
+        ]
+    },
+    {
+        q : '10. test',
+        a : [
+            {answer: '1번 답'},
+            {answer: '2번 답'},
+            {answer: '3번 답'},
+            {answer: '4번 답'},
+        ]
+    },
+    {
+        q : '11. test',
+        a : [
+            {answer: '1번 답'},
+            {answer: '2번 답'},
+            {answer: '3번 답'},
+            {answer: '4번 답'},
+        ]
+    },
+    {
+        q : '12. test',
+        a : [
+            {answer: '1번 답'},
+            {answer: '2번 답'},
+            {answer: '3번 답'},
+            {answer: '4번 답'},
+        ]
+    },
+    {
+        q : '13. test',
+        a : [
+            {answer: '1번 답'},
+            {answer: '2번 답'},
+            {answer: '3번 답'},
+            {answer: '4번 답'},
+        ]
+    },
+    {
+        q : '14. test',
+        a : [
+            {answer: '1번 답'},
+            {answer: '2번 답'},
+            {answer: '3번 답'},
+            {answer: '4번 답'},
+        ]
+    },
+    {
+        q : '15. test',
+        a : [
+            {answer: '1번 답'},
+            {answer: '2번 답'},
+            {answer: '3번 답'},
+            {answer: '4번 답'},
+        ]
+    },
 ]

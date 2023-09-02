@@ -1,9 +1,8 @@
-
 .mainbody{
     background: url("../images/v1_3.png");
     text-align: center;
     background-size:cover;
-    height:896px;
+    height:100dvh;
     margin: 0 auto;
 }
 body{

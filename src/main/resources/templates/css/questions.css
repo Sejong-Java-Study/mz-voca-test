@@ -32,7 +32,7 @@ body{
 }
 @media (min-width: 1024px) {
     .mainbody {
-        height: 100vdh;
+        height: 100dvh;
         width: 864px;
         min-width: 864px;
         font-size: 140px;
