@@ -1,14 +1,12 @@
 package com.web.mzvoca.repository;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.jdbc.datasource.DataSourceUtils;
 import org.springframework.jdbc.support.JdbcUtils;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.NoSuchElementException;
 
 @Repository
@@ -40,9 +38,7 @@ public class TotalCountRepositoryImpl implements TotalCountRepository {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
-            JdbcUtils.closeResultSet(rs);
-            JdbcUtils.closeStatement(pstmt);
-            JdbcUtils.closeConnection(con);
+            close(con, pstmt, rs);
         }
     }
 
@@ -52,7 +48,15 @@ public class TotalCountRepositoryImpl implements TotalCountRepository {
     }
 
     private Connection getConnection() throws SQLException {
-        Connection con = dataSource.getConnection();
+        // 트랜잭션 동기화를 위해 DataSourceUtils 메서드 사용
+        Connection con = DataSourceUtils.getConnection(dataSource);
         return con;
+    }
+
+    private void close(Connection con, Statement stmt, ResultSet rs) {
+        JdbcUtils.closeResultSet(rs);
+        JdbcUtils.closeStatement(stmt);
+        // 트랜잭션 동기화를 위해 DataSourceUtils 메서드 사용
+        DataSourceUtils.releaseConnection(con, dataSource);
     }
 }
