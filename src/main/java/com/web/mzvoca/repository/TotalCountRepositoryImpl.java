@@ -31,7 +31,7 @@ public class TotalCountRepositoryImpl implements TotalCountRepository {
             rs = pstmt.executeQuery();
             if (rs.next()) {
                 // 가져온 데이터가 있을 때 실행할 부분
-                int totalCount = rs.getInt("totalCount");
+                int totalCount = rs.getInt("total_count");
                 return totalCount;
             } else {
                 throw new NoSuchElementException("값이 없습니다.");
@@ -47,7 +47,7 @@ public class TotalCountRepositoryImpl implements TotalCountRepository {
     @Override
     public void totalCountUpdate() {
         // Update문을 통해 totalCount 값을 1 증가
-        String sql = "update totalcount set totalCount = totalCount + 1";
+        String sql = "update totalcount set total_count = total_count + 1";
 
         Connection con = null;
         PreparedStatement pstmt = null;
