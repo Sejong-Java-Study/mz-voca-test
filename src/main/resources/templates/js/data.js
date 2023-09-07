@@ -134,4 +134,13 @@ const qnaList=[
             {answer: '4번 답'},
         ]
     },
+    {
+        q : '16. test',
+        a : [
+            {answer: '1번 답'},
+            {answer: '2번 답'},
+            {answer: '3번 답'},
+            {answer: '4번 답'},
+        ]
+    },
 ]

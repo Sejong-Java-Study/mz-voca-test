@@ -16,7 +16,7 @@
     <section id="main">
       <div class="mainbody mx-auto">
         <div style="text-align: left;">
-          <div style="text-align: center; border:1px solid; border-radius:10px; font-size: 0.14em;" class="col-2">제 2교시</div>
+          <div style="text-align: center; border:1px solid; border-radius:10px; font-size: 0.14em;" class="col-3">제 2교시</div>
         </div>
         <div style="font-size:0.16em">2023학년도 MZ어휘력고사 문제지</div>
         <div style="font-size:0.36em" class="m-3">문해력 영역</div>
@@ -58,10 +58,10 @@
         <div style="font-size:0.36em" class="m-3 section"></div>
         <div style="font-size:0.30em" class="m-5 qBox"></div>
         <div style="font-size: 0.24em; text-align: left;" class="col-8 mx-auto answerBox">
-            <div><button class="answerbutton me-3">1</button><p class="a1"></p></div>
-            <div><button class="answerbutton me-3">2</button><p class="a2"></p></div>
-            <div><button class="answerbutton me-3">3</button><p class="a3"></p></div>
-            <div><button class="answerbutton me-3">4</button><p class="a4"></p></div>
+            <div><button class="answerbutton me-3 button1">1</button><p class="a1"></p></div>
+            <div><button class="answerbutton me-3 button2">2</button><p class="a2"></p></div>
+            <div><button class="answerbutton me-3 button3">3</button><p class="a3"></p></div>
+            <div><button class="answerbutton me-3 button4">4</button><p class="a4"></p></div>
         </div>
         <div style="display:flex;" class="col-6 mx-auto">
           <div class="mx-auto">
@@ -75,6 +75,61 @@
     </div>
     </section>
     <section id="result">
+      <div class="mainbody mx-auto">
+        <div style="font-size:0.26em" class="p-5">2023학년도 MZ어휘력고사 성적통지표</div>
+        <table style="font-size:0.16em; " class="mx-auto col-10">
+          <thead>
+            <tr>
+              <th class="col-3" style="border: 1px solid;">수험번호</th>
+              <th class="col-5" style="border: 1px solid;">성명</th>
+              <th class="col-4" style="border: 1px solid;">출신고교</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="col-3" style="border: 1px solid;">123-45678</td>
+              <td class="col-3" style="border: 1px solid;">김잼민</td>
+              <td class="col-6" style="border: 1px solid;">MZ고등학교</td>
+            </tr>
+            <tr>
+              <td class="col-3" style="border: 1px solid;">영역</td>
+              <td class="col-5" style="border: 1px solid;">문해력 영역</td>
+              <td class="col-4" style="border: 1px solid;">MZ력 영역</td>
+            </tr>
+            <tr>
+              <td class="col-3" style="border: 1px solid;">선택과목</td>
+              <td class="col-5" style="border: 1px solid;">문해력과 맞춤법</td>
+              <td class="col-4" style="border: 1px solid;">MZ어</td>
+            </tr>
+            <tr>
+              <td class="col-3" style="border: 1px solid;">표준점수</td>
+              <td class="col-5 stscore" style="border: 1px solid;"></td>
+              <td class="col-4 mzstscore" style="border: 1px solid;"></td>
+            </tr>
+            <tr>
+              <td class="col-3" style="border: 1px solid;">백분위</td>
+              <td class="col-5 percentile " style="border: 1px solid;"></td>
+              <td class="col-4 mzpercentile" style="border: 1px solid;"></td>
+            </tr>
+            <tr>
+              <td class="col-3" style="border: 1px solid;">등급</td>
+              <td class="col-5 grade" style="border: 1px solid;"></td>
+              <td class="col-4 mzgrade" style="border: 1px solid;"></td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="padding-bottom: 10px; font-size:0.16em">2023.08.12</div>
+        <div style="padding-bottom: 10px; font-size:0.16em">한국MZ평가원장</div>
+        <div style="display:flex;" class="col-6 mx-auto">
+          <div class="mx-auto">
+            <button type="button" onclick="js:goFirst()" class="btn btn-outline-secondary btn1 mb-5 " style="font-size:0.16em;">문제해설</button>
+          </div>
+          <div class="mx-auto">
+            <button type="button" onclick="js:next()" class="btn btn-outline-secondary btn1 mb-5 " style="font-size:0.16em;">오답랭킹</button>
+          </div>
+        </div>
+        <button type="button" class="btn btn-outline-secondary btn1"  onclick="js:goFirst()" style="font-size:0.16em;">다시풀기</button>
+    </div>
     </section>
     <script src="./js/data.js"></script>
     <script src="./js/start.js" charset="UTF-8"></script>

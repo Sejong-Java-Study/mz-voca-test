@@ -1,6 +1,9 @@
 #qna{
     display: none;
 }
+#result{
+    display:none;
+}
 .mainbody{
     background: url("../images/v1_3.png");
     text-align: center;
@@ -29,6 +32,9 @@ body{
     justify-content: center;
     align-items: center;
     float: left;
+}
+.answerbutton:active{
+    background-color: red;
 }
 @media (min-width: 1024px) {
     .mainbody {
