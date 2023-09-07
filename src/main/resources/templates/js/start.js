@@ -287,3 +287,7 @@ function goResult(){
     ranking.style.display="none";
     result.style.display="block";
 }
+function goRanking(){
+    result.style.display="none";
+    ranking.style.display="block";
+}
