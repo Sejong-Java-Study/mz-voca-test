@@ -118,17 +118,50 @@
             </tr>
           </tbody>
         </table>
-        <div style="padding-bottom: 10px; font-size:0.16em">2023.08.12</div>
+        <div style="padding-bottom: 10px; font-size:0.16em" class="m-3">2023.08.12</div>
         <div style="padding-bottom: 10px; font-size:0.16em">한국MZ평가원장</div>
         <div style="display:flex;" class="col-6 mx-auto">
           <div class="mx-auto">
-            <button type="button" onclick="js:goFirst()" class="btn btn-outline-secondary btn1 mb-5 " style="font-size:0.16em;">문제해설</button>
+            <button type="button" onclick="js:goCommentary()" class="btn btn-outline-secondary btn1 mb-5 " style="font-size:0.16em;">문제해설</button>
           </div>
           <div class="mx-auto">
             <button type="button" onclick="js:next()" class="btn btn-outline-secondary btn1 mb-5 " style="font-size:0.16em;">오답랭킹</button>
           </div>
         </div>
         <button type="button" class="btn btn-outline-secondary btn1"  onclick="js:goFirst()" style="font-size:0.16em;">다시풀기</button>
+    </div>
+    </section>
+    <section id="commentary">
+      <div class="mainbody mx-auto" style="height: 100%;">
+        <div style="font-size:0.16em" class="p-3">2023학년도 MZ어휘력고사 문제해설</div>
+        <div id="qnacontainer"></div>
+        <button type="button" class="btn btn-outline-secondary btn1"  onclick="js:goResult()" style="font-size:0.16em;">돌아가기</button>
+    </div>
+    </section>
+    <section id="ranking">
+      <div class="mainbody mx-auto">
+        <div style="font-size: 0.12em;" class="py-2 status"></div>
+        <div style="border:1px solid;" class="col-10 mx-auto my-2">
+          <div style="background-color: red; height: 3dvh;" class="statusBar"></div>
+        </div>
+        <div style="font-size:0.16em">2023학년도 MZ어휘력고사 문제지</div>
+        <div style="font-size:0.36em" class="m-3 section"></div>
+        <div style="font-size:0.30em" class="m-5 qBox"></div>
+        <div style="font-size: 0.24em; text-align: left;" class="col-8 mx-auto answerBox">
+            <div><button class="answerbutton me-3 button1">1</button><p class="a1"></p></div>
+            <div><button class="answerbutton me-3 button2">2</button><p class="a2"></p></div>
+            <div><button class="answerbutton me-3 button3">3</button><p class="a3"></p></div>
+            <div><button class="answerbutton me-3 button4">4</button><p class="a4"></p></div>
+        </div>
+        <div style="display:flex;" class="col-6 mx-auto">
+          <div class="mx-auto">
+            <button type="button" onclick="js:prev()" class="btn btn-outline-secondary btn1 mb-5 " style="font-size:0.16em;">이전</button>
+          </div>
+          <div class="mx-auto">
+            <button type="button" onclick="js:next()" class="btn btn-outline-secondary btn1 mb-5 " style="font-size:0.16em;">다음</button>
+          </div>
+        </div>
+      <div style="padding-bottom: 10px; font-size:0.16em">한국MZ평가원</div>
     </div>
     </section>
     <script src="./js/data.js"></script>

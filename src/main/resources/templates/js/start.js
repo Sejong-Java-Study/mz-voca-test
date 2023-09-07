@@ -1,6 +1,8 @@
 const main=document.querySelector('#main');
 const qna=document.querySelector('#qna');
 const result=document.querySelector('#result');
+const commentary=document.querySelector('#commentary');
+const ranking=document.querySelector('#ranking');
 const select=[];
 const button1 = document.querySelector('.button1');
 const button2 = document.querySelector('.button2');
@@ -41,10 +43,10 @@ button2.addEventListener('click', function() {
         sec=1;
     }
     if(answer[qIdx]==2){
-        select.push({ questionNumber: qIdx + 1, selectedAnswer: 1 , tf: true, section: sec});
+        select.push({ questionNumber: qIdx + 1, selectedAnswer: 2 , tf: true, section: sec});
     }
     else{
-        select.push({ questionNumber: qIdx + 1, selectedAnswer: 1 , tf: false, section: sec});
+        select.push({ questionNumber: qIdx + 1, selectedAnswer: 2 , tf: false, section: sec});
     }
 });
 
@@ -57,10 +59,10 @@ button3.addEventListener('click', function() {
         sec=1;
     }
     if(answer[qIdx]==3){
-        select.push({ questionNumber: qIdx + 1, selectedAnswer: 1 , tf: true, section: sec});
+        select.push({ questionNumber: qIdx + 1, selectedAnswer: 3 , tf: true, section: sec});
     }
     else{
-        select.push({ questionNumber: qIdx + 1, selectedAnswer: 1 , tf: false, section: sec});
+        select.push({ questionNumber: qIdx + 1, selectedAnswer: 3 , tf: false, section: sec});
     }
 });
 
@@ -73,10 +75,10 @@ button4.addEventListener('click', function() {
         sec=1;
     }
     if(answer[qIdx]==4){
-        select.push({ questionNumber: qIdx + 1, selectedAnswer: 1 , tf: true, section: sec});
+        select.push({ questionNumber: qIdx + 1, selectedAnswer: 4 , tf: true, section: sec});
     }
     else{
-        select.push({ questionNumber: qIdx + 1, selectedAnswer: 1 , tf: false, section: sec});
+        select.push({ questionNumber: qIdx + 1, selectedAnswer: 4 , tf: false, section: sec});
     }
 });
 
@@ -204,7 +206,7 @@ function goNext(qIdx){
     var mzpercentile=document.querySelector('.mzpercentile');
     var grade=document.querySelector('.grade');
     var mzgrade=document.querySelector('.mzgrade');
-    if(qIdx==15){
+    if(qIdx===qnaList.length){
         qna.style.display="none";
         result.style.display="block";
         calResult();
@@ -237,4 +239,51 @@ function begin(){
     main.style.display="none";
     qna.style.display="block";
     goNext(qIdx);
+}
+const qnaContainer= document.getElementById('qnacontainer');
+function goCommentary(){
+    qnaList.forEach((qna,Index)=>{
+        addQnA(qna,Index);
+    });
+    result.style.display="none";
+    commentary.style.display="block";
+}
+function addQnA(qna,Index){
+    const qElement = document.createElement('div');
+    qElement.classList.add('questionstyle');
+    qElement.classList.add('m-5');
+    qElement.textContent=qna.q;
+    qnaContainer.appendChild(qElement);
+
+    qna.a.forEach((answer,index)=>{
+        const aElement=document.createElement('div');
+        aElement.classList.add('answerstyle');
+        aElement.classList.add('col-8');
+        aElement.classList.add('mx-auto');
+        aElement.textContent = `${index + 1}. ${answer.answer}`;
+        qnaContainer.appendChild(aElement);
+    });
+    
+    const sElement=document.createElement('div');
+    sElement.classList.add('commentarystyle');
+    sElement.classList.add('m-5');
+    if (select[Index] && typeof select[Index].selectedAnswer !== 'undefined') {
+        sElement.textContent='선택한 답: '+select[Index].selectedAnswer;
+    } else {
+        sElement.textContent ='무응답'; // 또는 다른 기본값 설정
+    }
+    qnaContainer.appendChild(sElement);
+
+    const cElement=document.createElement('div');
+    cElement.classList.add('commentarystyle');
+    cElement.classList.add('m-5');
+    cElement.textContent=qna.c;
+    qnaContainer.appendChild(cElement);
+
+}
+
+function goResult(){
+    commentary.style.display="none";
+    ranking.style.display="none";
+    result.style.display="block";
 }
