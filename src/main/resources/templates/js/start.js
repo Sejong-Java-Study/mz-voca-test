@@ -291,3 +291,33 @@ function goRanking(){
     result.style.display="none";
     ranking.style.display="block";
 }
+
+
+// 현재 페이지 URL 가져오기
+const currentPageURL = window.location.href;
+
+// 링크 복사 함수
+function copyPageLink() {
+  const tempInput = document.createElement('input');
+  tempInput.value = currentPageURL;
+  document.body.appendChild(tempInput);
+  tempInput.select();
+  document.execCommand('copy');
+  document.body.removeChild(tempInput);
+}
+
+// 카카오톡 공유 함수
+function shareKakao() {
+  Kakao.Link.sendDefault({
+    objectType: 'feed',
+    content: {
+      title: '페이지 제목',
+      description: '페이지 설명',
+      imageUrl: '이미지 URL',
+      link: {
+        mobileWebUrl: currentPageURL,
+        webUrl: currentPageURL,
+      },
+    },
+  });
+}
