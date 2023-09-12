@@ -44,6 +44,18 @@ class QuestionRepositoryImplTest {
     }
 
     @Test
+    @DisplayName("특정 문항의 오답 횟수 1 증가")
     void questionWrongCountUpdate() {
+        //given
+        int questionNumber = 1;
+        Integer beforeResult = questionRepository.questionWrongCountRead(questionNumber);
+
+        //when
+        questionRepository.questionWrongCountUpdate(questionNumber);
+        Integer afterResult = questionRepository.questionWrongCountRead(questionNumber);
+
+        //then
+        assertThat(afterResult).isEqualTo(beforeResult + 1);
+
     }
 }
