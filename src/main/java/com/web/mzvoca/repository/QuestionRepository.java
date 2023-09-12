@@ -4,5 +4,5 @@ public interface QuestionRepository {
 
     public int questionWrongCountRead(int questionNumber);
 
-    public void questionWrongCountUpdate();
+    public void questionWrongCountUpdate(int questionNumber);
 }

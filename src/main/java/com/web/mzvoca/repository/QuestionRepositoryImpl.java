@@ -6,6 +6,7 @@ import org.springframework.jdbc.support.JdbcUtils;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
+import javax.xml.transform.Result;
 import java.sql.*;
 import java.util.NoSuchElementException;
 
@@ -20,7 +21,7 @@ public class QuestionRepositoryImpl implements QuestionRepository {
      */
     @Override
     public int questionWrongCountRead(int questionNumber) {
-//        String sql = "// wrong_count 컬럼 조회 - where PK 값으로";
+//      wrong_count 컬럼 조회 - where PK 값으로";
         String sql = "select wrong_count from question where question_number = ?";
 
         Connection con = null;
@@ -47,9 +48,27 @@ public class QuestionRepositoryImpl implements QuestionRepository {
         }
     }
 
+    /**
+     * 특정 문제의 오답 횟수를 1 증가
+     */
     @Override
-    public void questionWrongCountUpdate() {
+    public void questionWrongCountUpdate(int questionNumber) {
+        // wrongCount UPDATE where PK = questionNumber
+        String sql = "update question set wrong_count = wrong_count + 1 where question_number = ?";
 
+        Connection con = null;
+        PreparedStatement pstmt = null;
+
+        try {
+            con = getConnection();
+            pstmt = con.prepareStatement(sql);
+            pstmt.setInt(1, questionNumber);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            close(con, pstmt, null);
+        }
     }
 
     private Connection getConnection() throws SQLException {
