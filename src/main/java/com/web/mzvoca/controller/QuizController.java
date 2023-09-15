@@ -1,11 +1,15 @@
-package com.web.mzvoca.Member.controller;
+package com.web.mzvoca.controller;
 
 import com.web.mzvoca.Member.dto.QuizDTO;
-import com.web.mzvoca.Member.service.QuizService;
+import com.web.mzvoca.dto.RequestDto;
+import com.web.mzvoca.service.QuizService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+import java.util.List;
+
+@Controller
 @RequiredArgsConstructor
 public class QuizController {
 
@@ -25,5 +29,15 @@ public class QuizController {
         return isCorrect ? "Correct Answer!" : "Wrong Answer!";
     }
 
+    @GetMapping("/home")
+    public String home() {
+        return "index";
+    }
 
+    @PostMapping("/api/wrongRate")
+    @ResponseBody
+    public QuizDTO getWrongRate(@RequestBody List<RequestDto> list) {
+        System.out.println(list);
+        return new QuizDTO("1번", "내용 없음", "정답");
+    }
 }
