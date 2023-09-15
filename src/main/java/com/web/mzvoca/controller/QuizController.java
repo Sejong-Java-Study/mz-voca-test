@@ -1,29 +1,30 @@
-package com.web.mzvoca.Member.controller;
+package com.web.mzvoca.controller;
 
-import com.web.mzvoca.Member.dto.QuizDTO;
-import com.web.mzvoca.Member.service.QuizService;
-import lombok.RequiredArgsConstructor;
+import com.web.mzvoca.dto.AnswerDTO;
+import com.web.mzvoca.service.QuizService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequiredArgsConstructor
+@RequestMapping("/quiz")
 public class QuizController {
 
-    private final QuizService quizService;
+    @Autowired
+    private QuizService quizService;
 
-    //값 가져오기
-
-    @GetMapping("/quiz/{id}")
+    @GetMapping("/{id}")
     public QuizDTO getQuiz(@PathVariable Long id) {
         return quizService.getQuiz(id);
+
+    @PostMapping("/checkAnswers")
+    public List<Double> checkAndCalculateWrongRates(@RequestBody List<UserAnswerDTO> userAnswers) {
+        return quizService.checkAndCalculateWrongRates(userAnswers);
     }
-
-    //값 보여주기
-    @PostMapping("/quiz/submit")
-    public String submitAnswer(@RequestBody QuizDTO quizDTO) {
-        boolean isCorrect = quizService.checkAnswer(quizDTO);
-        return isCorrect ? "Correct Answer!" : "Wrong Answer!";
+    @PostMapping("/submit")
+    public ResponseEntity<String> submitQuiz(@RequestBody List<QuizDTO> quizDTOs) {
+        quizService.processQuizAnswers(quizDTOs);
+        return ResponseEntity.ok("Quiz processed successfully");
     }
-
-
 }
