@@ -6,6 +6,7 @@ import com.web.mzvoca.dto.AnswerDTO;
 import java.util.List;
 
 public interface QuizService {
-    QuizDTO getQuiz(Long id);
-    List<Double> checkAndCalculateWrongRates(List<AnswerDTO> userAnswers);
+
+    // List<AnswerDTO>를 반환
+    List<AnswerDTO> getWrongCountRate();
 }

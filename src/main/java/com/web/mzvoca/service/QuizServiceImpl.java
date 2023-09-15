@@ -1,10 +1,9 @@
 package com.web.mzvoca.service;
 
+import com.web.mzvoca.dto.AnswerDTO;
 import com.web.mzvoca.dto.QuizDTO;
 import com.web.mzvoca.repository.QuestionRepository;
 import com.web.mzvoca.repository.TotalCountRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import com.web.mzvoca.repository.QuestionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -16,32 +15,11 @@ public class QuizServiceImpl implements QuizService {
 
     private final TotalCountRepository totalCountRepository;
     private final QuestionRepository questionRepository;
-    private final QuestionRepository questionRepository;
 
     @Override
-    public QuizDTO getQuiz(Long id) {
-        // DB에서 id에 해당하는 문제를 가져와서 반환
-        return new QuizDTO("Sample Title", "Sample Content", null);
-    }
+    public List<AnswerDTO> getWrongCountRate() {
 
-    @Override
-    public double processQuizAnswers(List<com.web.mzvoca.dto.QuizDTO> quizDTOs) {
-        // 전체 제출 횟수 업데이트
-        totalCountRepository.totalCountUpdate();
-
-        for (QuizDTO quizDTO : quizDTOs) {
-            // tf가 false인 경우 해당 문제의 오답 횟수 업데이트
-            if (!quizDTO.isTf()) {
-                questionRepository.questionWrongCountUpdate(quizDTO.getQuestionNumber());
-            }
-        }
-        // 전체 제출 횟수 가져오기
-        double totalSubmitCount = totalCountRepository.totalCountRead();
-
-        double questionWrongCount = questionRepository.questionWrongCountRead(quizDTOs.get(0).getQuestionNumber());
-
-        // 오답률 계산 후 반환
-        return (questionWrongCount / totalSubmitCount * 100);
+        return null;
     }
 }
 
