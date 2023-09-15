@@ -17,6 +17,9 @@ public class TotalCountRepositoryImpl implements TotalCountRepository {
 
     private final DataSource dataSource;
 
+    /**
+     * @return 현재 제출된 횟수를 반환
+     */
     @Override
     public int totalCountRead() {
         String sql = "select * from totalcount";
@@ -44,6 +47,9 @@ public class TotalCountRepositoryImpl implements TotalCountRepository {
         }
     }
 
+    /**
+     * 현재 제출 횟수에서 +1하는 메서드
+     */
     @Override
     public void totalCountUpdate() {
         // Update문을 통해 totalCount 값을 1 증가
