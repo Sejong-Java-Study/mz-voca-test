@@ -1,6 +1,8 @@
 package com.web.mzvoca.controller;
 
-import com.web.mzvoca.Member.dto.QuizDTO;
+import com.web.mzvoca.dto.AnswerDTO;
+import com.web.mzvoca.service.QuizService;
+import org.springframework.beans.factory.annotation.Autowired;
 import com.web.mzvoca.dto.RequestDto;
 import com.web.mzvoca.service.QuizService;
 import lombok.RequiredArgsConstructor;
@@ -13,20 +15,21 @@ import java.util.List;
 @RequiredArgsConstructor
 public class QuizController {
 
-    private final QuizService quizService;
+    @Autowired
+    private QuizService quizService;
 
-    //값 가져오기
-
-    @GetMapping("/quiz/{id}")
+    @GetMapping("/{id}")
     public QuizDTO getQuiz(@PathVariable Long id) {
         return quizService.getQuiz(id);
-    }
 
-    //값 보여주기
-    @PostMapping("/quiz/submit")
-    public String submitAnswer(@RequestBody QuizDTO quizDTO) {
-        boolean isCorrect = quizService.checkAnswer(quizDTO);
-        return isCorrect ? "Correct Answer!" : "Wrong Answer!";
+    @PostMapping("/checkAnswers")
+    public List<Double> checkAndCalculateWrongRates(@RequestBody List<UserAnswerDTO> userAnswers) {
+        return quizService.checkAndCalculateWrongRates(userAnswers);
+    }
+    @PostMapping("/submit")
+    public ResponseEntity<String> submitQuiz(@RequestBody List<QuizDTO> quizDTOs) {
+        quizService.processQuizAnswers(quizDTOs);
+        return ResponseEntity.ok("Quiz processed successfully");
     }
 
     @GetMapping("/home")
@@ -40,4 +43,5 @@ public class QuizController {
         System.out.println(list);
         return new QuizDTO("1번", "내용 없음", "정답");
     }
+
 }
