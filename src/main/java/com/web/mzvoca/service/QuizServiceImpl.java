@@ -4,18 +4,25 @@ import com.web.mzvoca.dto.QuizDTO;
 import com.web.mzvoca.repository.QuestionRepository;
 import com.web.mzvoca.repository.TotalCountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import com.web.mzvoca.repository.QuestionRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class QuizServiceImpl implements QuizService {
 
-    @Autowired
-    private TotalCountRepository totalCountRepository;
+    private final TotalCountRepository totalCountRepository;
+    private final QuestionRepository questionRepository;
+    private final QuestionRepository questionRepository;
 
-    @Autowired
-    private QuestionRepository questionRepository;
+    @Override
+    public QuizDTO getQuiz(Long id) {
+        // DB에서 id에 해당하는 문제를 가져와서 반환
+        return new QuizDTO("Sample Title", "Sample Content", null);
+    }
 
     @Override
     public double processQuizAnswers(List<com.web.mzvoca.dto.QuizDTO> quizDTOs) {

@@ -38,3 +38,5 @@ out/
 
 ### DB 비밀번호 ###
 /src/main/resources/db.properties
+/src/test/java/com/web/mzvoca/repository/DBConst.java
+/src/main/resources/application-db.properties
