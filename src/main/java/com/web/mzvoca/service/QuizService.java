@@ -1,4 +1,4 @@
-package com.web.mzvoca.Member.service;
+package com.web.mzvoca.service;
 
 import com.web.mzvoca.Member.dto.QuizDTO;
 
