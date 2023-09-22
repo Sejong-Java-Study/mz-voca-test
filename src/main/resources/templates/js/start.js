@@ -18,6 +18,9 @@ var Percentile;
 var Mzpercentile;
 var Stscore;
 var Mzstscore;
+
+let selectedButton = null;
+
 button1.addEventListener('click', function() {
     var sec;
     if((qIdx+1)%3){
@@ -206,6 +209,10 @@ function goNext(qIdx){
     var mzpercentile=document.querySelector('.mzpercentile');
     var grade=document.querySelector('.grade');
     var mzgrade=document.querySelector('.mzgrade');
+
+    const buttons = document.querySelectorAll('.answerbutton');
+    buttons.forEach(button => button.style.backgroundColor = '');
+
     if(qIdx===qnaList.length){
         qna.style.display="none";
         result.style.display="block";
@@ -308,6 +315,7 @@ function copyPageLink() {
 
 // 카카오톡 공유 함수
 function shareKakao() {
+<<<<<<< Updated upstream:src/main/resources/templates/js/start.js
   Kakao.Link.sendDefault({
     objectType: 'feed',
     content: {
@@ -321,3 +329,34 @@ function shareKakao() {
     },
   });
 }
+=======
+    Kakao.Link.sendDefault({
+        objectType: 'feed',
+        content: {
+            title: '페이지 제목',
+            description: '페이지 설명',
+            imageUrl: '이미지 URL',
+            link: {
+                mobileWebUrl: currentPageURL,
+                webUrl: currentPageURL,
+            },
+        },
+    });
+}
+
+
+    function handleButtonClick(buttonId) {
+      // 모든 버튼의 색상을 원래대로 되돌림
+      const buttons = document.querySelectorAll('.answerbutton');
+      buttons.forEach(button => button.style.backgroundColor = '');
+
+      if (selectedButton === buttonId) {
+        // 같은 버튼을 다시 클릭하면 선택 해제
+        selectedButton = null;
+      } else {
+        // 다른 버튼을 클릭하면 해당 버튼을 빨간색으로 변경하고 선택
+        selectedButton = buttonId;
+        document.querySelector(`.${buttonId}`).style.backgroundColor = 'red';
+      }
+    }
+>>>>>>> Stashed changes:src/main/resources/static/js/start.js
