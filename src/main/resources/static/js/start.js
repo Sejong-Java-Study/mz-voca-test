@@ -18,9 +18,6 @@ var Percentile;
 var Mzpercentile;
 var Stscore;
 var Mzstscore;
-
-let selectedButton = null;
-
 button1.addEventListener('click', function() {
     var sec;
     if((qIdx+1)%3){
@@ -93,7 +90,7 @@ function calResult(){
     else{
         sec=1;
     }
-   for(i=0; i<15; i++){
+    for(i=0; i<15; i++){
         if(select[i]&&select[i].tf===true){
             if(select[i].section==0){
                 score+=10;
@@ -102,7 +99,7 @@ function calResult(){
                 mzscore+=20;
             }
         }
-   }
+    }
 }
 function calGrade(){
     if(score<=10){
@@ -194,6 +191,26 @@ function goFirst(){
     main.style.display="block";
 }
 
+function getPost(){
+    $.ajax({
+        url:"http://localhost:8080/api/wrongRate",
+        type:"POST",
+        data:JSON.stringify(select),
+        contentType: "application/json",
+        success: function(result) {
+            if (result) {
+                alert("저장되었습니다.");
+                console.log(JSON.stringify(result));
+            } else {
+                alert("잠시 후에 시도해주세요.");
+            }
+        },
+        error: function() {
+            alert("에러 발생");
+        }
+    })
+}
+
 function goNext(qIdx){
     var q=document.querySelector('.qBox');
     var a1=document.querySelector('.a1');
@@ -209,13 +226,10 @@ function goNext(qIdx){
     var mzpercentile=document.querySelector('.mzpercentile');
     var grade=document.querySelector('.grade');
     var mzgrade=document.querySelector('.mzgrade');
-
-    const buttons = document.querySelectorAll('.answerbutton');
-    buttons.forEach(button => button.style.backgroundColor = '');
-
     if(qIdx===qnaList.length){
         qna.style.display="none";
         result.style.display="block";
+        getPost();
         calResult();
         calGrade();
         grade.innerHTML=Grade;
@@ -270,7 +284,7 @@ function addQnA(qna,Index){
         aElement.textContent = `${index + 1}. ${answer.answer}`;
         qnaContainer.appendChild(aElement);
     });
-    
+
     const sElement=document.createElement('div');
     sElement.classList.add('commentarystyle');
     sElement.classList.add('m-5');
@@ -305,31 +319,16 @@ const currentPageURL = window.location.href;
 
 // 링크 복사 함수
 function copyPageLink() {
-  const tempInput = document.createElement('input');
-  tempInput.value = currentPageURL;
-  document.body.appendChild(tempInput);
-  tempInput.select();
-  document.execCommand('copy');
-  document.body.removeChild(tempInput);
+    const tempInput = document.createElement('input');
+    tempInput.value = currentPageURL;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand('copy');
+    document.body.removeChild(tempInput);
 }
 
 // 카카오톡 공유 함수
 function shareKakao() {
-<<<<<<< Updated upstream:src/main/resources/templates/js/start.js
-  Kakao.Link.sendDefault({
-    objectType: 'feed',
-    content: {
-      title: '페이지 제목',
-      description: '페이지 설명',
-      imageUrl: '이미지 URL',
-      link: {
-        mobileWebUrl: currentPageURL,
-        webUrl: currentPageURL,
-      },
-    },
-  });
-}
-=======
     Kakao.Link.sendDefault({
         objectType: 'feed',
         content: {
@@ -343,20 +342,3 @@ function shareKakao() {
         },
     });
 }
-
-
-    function handleButtonClick(buttonId) {
-      // 모든 버튼의 색상을 원래대로 되돌림
-      const buttons = document.querySelectorAll('.answerbutton');
-      buttons.forEach(button => button.style.backgroundColor = '');
-
-      if (selectedButton === buttonId) {
-        // 같은 버튼을 다시 클릭하면 선택 해제
-        selectedButton = null;
-      } else {
-        // 다른 버튼을 클릭하면 해당 버튼을 빨간색으로 변경하고 선택
-        selectedButton = buttonId;
-        document.querySelector(`.${buttonId}`).style.backgroundColor = 'red';
-      }
-    }
->>>>>>> Stashed changes:src/main/resources/static/js/start.js
