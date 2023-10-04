@@ -1,63 +1,19 @@
 package com.web.mzvoca.dto;
 
+import lombok.Data;
+
+@Data
 public class QuizDTO {
-    private Long questionNumber;
-    private boolean tf;
-    private Long id;
-    private String question;
-    private String answer;
-    private Double wrongRate; // 오답률
+    private Long questionNumber; //문제 번호를 나타내는 Long 타입의 변수
+    private String q; //  문제 내용을 나타내는 문자열
+    private AnswerOption[] a; // 답안 옵션을 나타내는 AnswerOption 배열입니다.
+    private String c; // : 문제에 대한 해설을 나타내는 문자열입니다.
 
-    // 기본 생성자
-    public QuizDTO() {}
-
-    // 모든 필드를 포함하는 생성자
-    public QuizDTO(Long id, String question, String answer, Double wrongRate) {
-        this.id = id;
-        this.question = question;
-        this.answer = answer;
-        this.wrongRate = wrongRate;
+    @Data
+    public static class AnswerOption {
+        private String answer; //답안의 내용을 나타내는 문자열입니다.
+        private int[] type; // 답안의 유형을 나타내는 정수 배열
     }
-
-    // getter, setter
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getQuestion() {
-        return question;
-    }
-
-    public void setQuestion(String question) {
-        this.question = question;
-    }
-
-    public String getAnswer() {
-        return answer;
-    }
-
-    public void setAnswer(String answer) {
-        this.answer = answer;
-    }
-
-    public Double getWrongRate() {
-        return wrongRate;
-    }
-
-    public void setWrongRate(Double wrongRate) {
-        this.wrongRate = wrongRate;
-    }
-
-    public boolean isTf() {
-        return tf;
-    }
-
-    public Long getQuestionNumber() {
-        return questionNumber;
-    }
-
 }
+
+//QuizDTO는 주로 퀴즈 문제의 내용, 답안 옵션, 해설 등의 정보를 전송하는 데 사용

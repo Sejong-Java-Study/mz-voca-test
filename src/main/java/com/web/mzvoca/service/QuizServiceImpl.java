@@ -1,12 +1,12 @@
 package com.web.mzvoca.service;
 
 import com.web.mzvoca.dto.AnswerDTO;
-import com.web.mzvoca.dto.QuizDTO;
+import com.web.mzvoca.dto.RequestDto;
 import com.web.mzvoca.repository.QuestionRepository;
 import com.web.mzvoca.repository.TotalCountRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -17,18 +17,21 @@ public class QuizServiceImpl implements QuizService {
     private final QuestionRepository questionRepository;
 
     @Override
-    public List<AnswerDTO> getWrongCountRate() {
+    public List<AnswerDTO> getWrongCountRate(List<RequestDto> requestDtos) {
+        int totalCount = totalCountRepository.totalCountRead();//전체 제출 횟수를 조회합니다.
+        List<AnswerDTO> answerDTOList = new ArrayList<>();
+//사용자의 답변을 기반으로 각 문제의 잘못된 답변 비율을 계산
+        for (RequestDto requestDto : requestDtos) {
+            int questionNumber = requestDto.getQuestionNumber();
+            int wrongCount = questionRepository.questionWrongCountRead(questionNumber);
+            //사용자의 답변 목록을 순회하면서 각 문제의 잘못된 답변 횟수를 조회합니다.
+            double wrongRate = (double) wrongCount / totalCount;
+            answerDTOList.add(new AnswerDTO(questionNumber, wrongRate));
+        }
+        //잘못된 답변 비율을 계산하고, 이를 AnswerDTO 객체에 저장합니다.
+        //계산된 AnswerDTO 객체를 목록에 추가합니다.
 
-        return null;
+        return answerDTOList;
+        //반환 값: 각 문제에 대한 잘못된 답변 비율을 포함하는 AnswerDTO 객체의 목록
     }
 }
-
-/**
- * 0. totalCountReposiotory.totalCountUpdate() 호출
- * 1. tf가 false면 questionRepository.questionWrongCountUpdate(문제 번호) 호출
- * 2. 오답률 반환
- * 2-1. totalCountReposiotory.totalCountRead() 호출 : 전체 제출 횟수 값 가져오기
- * 2-2. questionRepository.questionWrongCountRead(문제번호) 호출 : 특정 문제의 오답 횟수 값 가져오기
- * 2-3. (오답 횟수 값 / 전체 제출 횟수 값) 반환
- *
- */
