@@ -5,45 +5,157 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-  <link href="./css/main.css" rel="stylesheet" />
+  <link href="/css/main.css" rel="stylesheet" />
+  <link href="/css/questions.css" rel="stylesheet" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="container">
-    <div class="col-8 mainbody mx-auto">
-      <div style="text-align: left; border:1px solid; border-radius:10px; font-size: 14px;" class="col-2 m-2">제 2교시</div>
-      <div style="font-size:16px">2023학년도 MZ어휘력고사 문제지</div>
-      <div style="font-size:36px" class="m-3">문해력 영역</div>
-      <div class="name">
-        <div class="col-3 name" style="font-size:14px">
-          <table>
-            <th>성명</th><th>김잼민</th>
-          </table>
+    <section id="main">
+      <div class="mainbody mx-auto">
+        <div style="text-align: left;">
+          <div style="text-align: center; border:1px solid; border-radius:10px; font-size: 0.14em;" class="col-3">제 2교시</div>
         </div>
-        <div class="col-5 name" style="font-size:14px">
-          <table>
-            <th>수험번호</th><th>123-456789</th>
-          </table>
+        <div style="font-size:0.16em">2023학년도 MZ어휘력고사 문제지</div>
+        <div style="font-size:0.36em" class="m-3">문해력 영역</div>
+        <div class="name">
+          <div class="col-3 name" style="font-size:0.14em">
+            <table>
+              <th>성명</th><th>김잼민</th>
+            </table>
+          </div>
+          <div class="col-5 name" style="font-size:0.14em">
+            <table>
+              <th>수험번호</th><th>123-456789</th>
+            </table>
+          </div>
+        </div>
+          <ul class="ms-5 me-5 mt-3" style="font-size:0.14em">
+            <li class="m-3">자신이 선택한 과목의 문제지인지 확인하시오.</li>
+            <li class="m-3">매 선택과목마다 문제지의 해당란에 성명과 수험번호를 정확히 쓰시오.</li>
+            <li class="m-3">답안지의 필적 확인란에 다음의 문구를 정자로 기재하시오.<br>
+              <div style="background-color: gray; border:1px solid" class="col-11 mx-auto">MZ 특: 이런거 자세히 안봄</div>
+            </li>
+            <li class="m-3"> 답안지의 해당란에 성명과 수험번호를 쓰고, 또 수험번호, 문형(홀수/짝수), 답을 정확히 표시하시오.</li>
+            <li class="m-3"> 문항에 따라 배점이 같으니 안심하고 푸세요.</li>
+          </ul>
+        <div>
+        <div style="background-color: gray; border:1px solid; font-size:0.14em" class="col-10 mx-auto mt-4 mb-5">※  시험이 시작되기 전까지 표지를 넘기지 마시오.</div>
+        <button type="button" onclick="js:begin()" class="btn btn-outline-secondary btn1 mb-5" style="font-size:0.14em">시작</button>
+        <div style="padding-bottom: 10px;font-size:0.14em">한국MZ평가원</div>
         </div>
       </div>
-        <ul class="ms-5 me-5 mt-3" style="font-size:14px">
-          <li class="m-3">자신이 선택한 과목의 문제지인지 확인하시오.</li>
-          <li class="m-3">매 선택과목마다 문제지의 해당란에 성명과 수험번호를 정확히 쓰시오.</li>
-          <li class="m-3">답안지의 필적 확인란에 다음의 문구를 정자로 기재하시오.<br>
-            <div style="background-color: gray; border:1px solid" class="col-11 mx-auto">MZ 특: 이런거 자세히 안봄</div>
-          </li>
-          <li class="m-3"> 답안지의 해당란에 성명과 수험번호를 쓰고, 또 수험번호, 문형(홀수/짝수), 답을 정확히 표시하시오.</li>
-          <li class="m-3"> 문항에 따라 배점이 같으니 안심하고 푸세요.</li>
-        </ul>
-      <div>
-      <div style="background-color: gray; border:1px solid" class="col-10 mx-auto mt-4 mb-5">※  시험이 시작되기 전까지 표지를 넘기지 마시오.</div>
-      <button type="button" class="btn btn-outline-secondary btn1 mb-5" style="font-size:14px">시작</button>
-      <div style="padding-bottom: 10px;">한국MZ평가원</div>
-      </div>
+    </section>
+    <section id="qna">
+      <div class="mainbody mx-auto">
+        <div style="font-size: 0.12em;" class="py-2 status"></div>
+        <div style="border:1px solid;" class="col-10 mx-auto my-2">
+          <div style="background-color: red; height: 3dvh;" class="statusBar"></div>
+        </div>
+        <div style="font-size:0.16em">2023학년도 MZ어휘력고사 문제지</div>
+        <div style="font-size:0.36em" class="m-3 section"></div>
+        <div style="font-size:0.30em" class="m-5 qBox"></div>
+        <div style="font-size: 0.24em; text-align: left;" class="col-8 mx-auto answerBox">
+            <div><button class="answerbutton me-3 button1">1</button><p class="a1"></p></div>
+            <div><button class="answerbutton me-3 button2">2</button><p class="a2"></p></div>
+            <div><button class="answerbutton me-3 button3">3</button><p class="a3"></p></div>
+            <div><button class="answerbutton me-3 button4">4</button><p class="a4"></p></div>
+        </div>
+        <div style="display:flex;" class="col-6 mx-auto">
+          <div class="mx-auto">
+            <button type="button" onclick="js:prev()" class="btn btn-outline-secondary btn1 mb-5 " style="font-size:0.16em;">이전</button>
+          </div>
+          <div class="mx-auto">
+            <button type="button" onclick="js:next()" class="btn btn-outline-secondary btn1 mb-5 " style="font-size:0.16em;">다음</button>
+          </div>
+        </div>
+      <div style="padding-bottom: 10px; font-size:0.16em">한국MZ평가원</div>
     </div>
+    </section>
+    <section id="result">
+      <div class="mainbody mx-auto">
+        <div style="font-size:0.26em" class="p-5">2023학년도 MZ어휘력고사 성적통지표</div>
+        <table style="font-size:0.16em; " class="mx-auto col-10">
+          <thead>
+            <tr>
+              <th class="col-3" style="border: 1px solid;">수험번호</th>
+              <th class="col-5" style="border: 1px solid;">성명</th>
+              <th class="col-4" style="border: 1px solid;">출신고교</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="col-3" style="border: 1px solid;">123-45678</td>
+              <td class="col-3" style="border: 1px solid;">김잼민</td>
+              <td class="col-6" style="border: 1px solid;">MZ고등학교</td>
+            </tr>
+            <tr>
+              <td class="col-3" style="border: 1px solid;">영역</td>
+              <td class="col-5" style="border: 1px solid;">문해력 영역</td>
+              <td class="col-4" style="border: 1px solid;">MZ력 영역</td>
+            </tr>
+            <tr>
+              <td class="col-3" style="border: 1px solid;">선택과목</td>
+              <td class="col-5" style="border: 1px solid;">문해력과 맞춤법</td>
+              <td class="col-4" style="border: 1px solid;">MZ어</td>
+            </tr>
+            <tr>
+              <td class="col-3" style="border: 1px solid;">표준점수</td>
+              <td class="col-5 stscore" style="border: 1px solid;"></td>
+              <td class="col-4 mzstscore" style="border: 1px solid;"></td>
+            </tr>
+            <tr>
+              <td class="col-3" style="border: 1px solid;">백분위</td>
+              <td class="col-5 percentile " style="border: 1px solid;"></td>
+              <td class="col-4 mzpercentile" style="border: 1px solid;"></td>
+            </tr>
+            <tr>
+              <td class="col-3" style="border: 1px solid;">등급</td>
+              <td class="col-5 grade" style="border: 1px solid;"></td>
+              <td class="col-4 mzgrade" style="border: 1px solid;"></td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="padding-bottom: 10px; font-size:0.16em" class="m-3">2023.08.12</div>
+        <div style="padding-bottom: 10px; font-size:0.16em">한국MZ평가원장</div>
+        <div style="display:flex;" class="col-10 mx-auto">
+          <div class="mx-auto">
+            <button type="button" onclick="js:goCommentary()" class="btn btn-outline-secondary btn1 mb-3 " style="font-size:0.16em;">문제해설</button>
+          </div>
+          <div class="mx-auto">
+            <button type="button" class="btn btn-outline-secondary btn1 mb-3"  onclick="js:goFirst()" style="font-size:0.16em;">다시풀기</button>
+          </div>
+          <div class="mx-auto">
+            <button type="button" onclick="js:goRanking()" class="btn btn-outline-secondary btn1 mb-3 " style="font-size:0.16em;">오답랭킹</button>
+          </div>
+        </div>  
+        <div style="width: 100%; text-align: center; margin-bottom: 64px;">
+          <a href="" onclick="js:copyPageLink()"><img src="../static/images/icon/copy.png" title="링크 복사" class="sharebtn_custom" style="width: 32px;"></a>
+          <a href="https://www.instagram.com/share?url=URL_HERE" onclick=""><img src="../static/images/icon/icon-instagram.png" title="인스타로 공유하기" class="sharebtn_custom" style="width: 32px;"></a>
+          <a href="" onclick=""><img src="../static/images/icon/icon-kakao.png" title="카카오톡으로 공유하기" class="sharebtn_custom" style="width: 32px;"></a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=URL_HERE" onclick=""><img src="../static/images/icon/icon-facebook.png" title="페이스북으로 공유하기" class="sharebtn_custom" style="width: 32px;"></a>
+          <a href="https://twitter.com/intent/tweet?url=URL_HERE" onclick=""><img src="../static/images/icon/icon-twitter.png" title="트위터로 공유하기" class="sharebtn_custom" style="width: 32px;"></a>
+        </div> 
+    </div>
+    </section>
+    <section id="commentary">
+      <div class="mainbody mx-auto" style="height: 100%;">
+        <div style="font-size:0.16em" class="p-3">2023학년도 MZ어휘력고사 문제해설</div>
+        <div id="qnacontainer"></div>
+        <button type="button" class="btn btn-outline-secondary btn1"  onclick="js:goResult()" style="font-size:0.16em;">돌아가기</button>
+    </div>
+    </section>
+    <section id="ranking">
+      <div class="mainbody mx-auto">
+        <div style="font-size:0.16em" class="p-3">오답률 랭킹</div>
+        <button type="button" class="btn btn-outline-secondary btn1"  onclick="js:goResult()" style="font-size:0.16em;">돌아가기</button>
+    </div>
+    </section>
+    <script src="/js/data.js"></script>
+    <script src="/js/start.js" charset="UTF-8"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   </div>
-  
 </body>
 </html>

@@ -1,0 +1,117 @@
+#qna{
+    display: none;
+}
+#result{
+    display:none;
+}
+#commentary{
+    display: none;
+}
+#ranking{
+    display: none;
+}
+.mainbody{
+    background: url("../images/v1_3.png");
+    text-align: center;
+    background-size:cover;
+    height:100dvh;
+    margin: 0 auto;
+    
+}
+
+.questionstyle{
+    font-size: 0.30em;
+}
+.answerstyle{
+    font-size: 0.24em;
+    text-align: left;
+}
+.commentarystyle{
+    font-size:0.18em;
+}
+body{
+    background-color: pink;
+    margin: 0;
+    padding: 0;
+}
+
+.btn1{
+    background-color: gray;
+    color:black;
+}
+*{
+    font-family: 'Noto Serif KR', serif;
+}
+.answerbutton{
+    border-radius: 50%;
+    width: 33.6px;
+    height: 33.6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: left;
+}
+.answerbutton:active{
+    background-color: red;
+}
+
+
+@media (min-width: 1024px) {
+    .mainbody {
+        height: 100dvh;
+        width: 864px;
+        min-width: 864px;
+        font-size: 140px;
+        
+    }
+    .container{
+        display: flex;
+        justify-content: center; /* 수평 가운데 정렬 */
+        align-items: center; /* 수직 가운데 정렬 */
+        text-align: center;
+    }
+    /* PC에 대한 추가 스타일 */
+}
+@media all and (min-width:768px) and (max-width:1023px) {
+    .mainbody {
+        height: 100dvh; 
+        width: 100dvw;
+        font-size: 140px; 
+        padding:0;
+        margin:0;
+       
+    }
+    .container{
+        padding:0;
+        margin:0;
+    }
+  } 
+  /*태블릿*/
+
+/* 모바일 스타일 */
+@media (max-width: 767px) {
+    .mainbody {
+        height: 100dvh; 
+        width: 100dvw;
+        font-size:11vh;
+        
+    }
+    .container {
+        padding:0;
+        margin:0;
+    }
+    
+}
+@media (min-width: 280px)and (max-width: 319px) and (orientation: portrait) {
+    .mainbody {
+        height: 100%; 
+        width: 100dvw;
+        font-size:80px;
+        
+    }
+    .container {
+        padding:0;
+        margin:0;
+    }
+}
+/*갤럭시폴드*/
