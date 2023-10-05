@@ -51,9 +51,7 @@ body{
     align-items: center;
     float: left;
 }
-.answerbutton:active{
-    background-color: red;
-}
+
 
 
 @media (min-width: 1024px) {

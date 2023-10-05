@@ -361,6 +361,6 @@ function handleButtonClick(buttonId) {
     } else {
       // 다른 버튼을 클릭하면 해당 버튼을 빨간색으로 변경하고 선택
       selectedButton = buttonId;
-      document.querySelector(`.${buttonId}`).style.backgroundColor = 'red';
+      document.querySelector(`.${buttonId}`).style.backgroundColor = 'grey';
     }
   }
